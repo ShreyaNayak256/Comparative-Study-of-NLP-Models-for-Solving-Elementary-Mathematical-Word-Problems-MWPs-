@@ -15,7 +15,7 @@ BERT-Based Hybrid Transformer Architecture
 BERT-Based Hybrid Transformer Architecture
 ------------------------------------------
 
-BertEncoder \
+BertEncoder \ /
 ├── BertModel \
 │   ├── Embeddings (Word, Position, Token Type) \
 │   ├── Encoder \
