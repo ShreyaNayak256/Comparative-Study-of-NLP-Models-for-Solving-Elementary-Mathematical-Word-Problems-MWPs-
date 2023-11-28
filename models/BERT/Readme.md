@@ -15,7 +15,7 @@ BERT-Based Hybrid Transformer Architecture
 BERT-Based Hybrid Transformer Architecture
 ------------------------------------------
 
-BertEncoder \ /
+BertEncoder \
 ├── BertModel \
 │   ├── Embeddings (Word, Position, Token Type) \
 │   ├── Encoder \
@@ -26,7 +26,6 @@ BertEncoder \ /
 │   └── Pooler \
 └── PositionalEncoding (for secondary positional encoding, if any) \
 └── Embedding (for secondary embeddings, if any) \
-
 Transformer \
 ├── Encoder \
 │   └── 4 x EncoderLayer \
@@ -41,21 +40,17 @@ Transformer \
         ├── Dense \
         ├── Norm \
         └── Dropout \
-\\
 Output Layer \
 └── Linear \
     └── Loss Function \
         └── CrossEntropyLoss \
 
 
-
 ## Training and Fine-Tuning
-
 - **Learning Rates**: BERT embeddings - 3e-5, transformer parameters - 1e-5.
 - **Optimization**: 15 epochs of fine-tuning on a GPU setup.
 
 ## Comparative Analysis
-
 - **Benchmarking**: Comparable to state-of-the-art results, demonstrating the viability of BERT for math equation prediction.
 - **Innovation**: Application of pretrained bidirectional language representations for equation prediction.
 
