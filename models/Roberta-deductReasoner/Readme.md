@@ -19,7 +19,7 @@ model_args = DeductReasoner.parse_model_args(args_dict)
 model_args.num_const = dec_tokenizer.nwords
 model = DeductReasoner(model_args)
 ```
-
+### Model Architecture
 ```python
 DeductReasoner(
   (roberta): RobertaAdapterModel(
