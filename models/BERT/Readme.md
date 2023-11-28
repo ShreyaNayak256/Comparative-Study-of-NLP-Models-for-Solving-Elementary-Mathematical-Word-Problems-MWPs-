@@ -6,24 +6,53 @@ This repository contains the BERT-Based Hybrid Transformer model, designed to cl
 
 The architecture integrates a `BertEncoder` with a `BertModel`, featuring 30,522 word embeddings and 512 position embeddings, each of size 768. It comprises 12 BertLayers with attention mechanisms and linear layers. Additionally, a Transformer with 4 encoder and 4 decoder layers equipped with multihead attention and linear transformations is included. Positional encoding and dropout are used for improved sequence understanding and regularization. A classification head is added to predict mathematical equations.
 
-### Adaptability
+### Model Architecture
 
-BERT's bidirectional representation learning enhances the model’s semantic understanding of math word problems. It is fine-tuned to adapt its pretrained knowledge to classify word problems into equations.
+Here's an overview of our model architecture:
+BERT-Based Hybrid Transformer Architecture
+------------------------------------------
 
-## Strategic Data Augmentation
+BERT-Based Hybrid Transformer Architecture
+------------------------------------------
 
-- **Cross-validation**: 5-fold cross-validation on the SVAMP dataset.
-- **Vocabulary Generation**: Creation of fold-specific vocabularies.
+BertEncoder
+├── BertModel \
+│   ├── Embeddings (Word, Position, Token Type) \
+│   ├── Encoder \
+│   │   └── 12 x BertLayer \
+│   │       └── Attention \
+│   ├── Intermediate \
+│   ├── Output \
+│   └── Pooler \
+└── PositionalEncoding (for secondary positional encoding, if any) \
+└── Embedding (for secondary embeddings, if any) \
+
+Transformer \
+├── Encoder \
+│   └── 4 x EncoderLayer \
+│       ├── Self Attention \
+│       ├── Dense \
+│       ├── Norm \
+│       └── Dropout \
+└── Decoder \
+    └── 4 x DecoderLayer \
+        ├── Self Attention \
+        ├── Multihead Attention \
+        ├── Dense \
+        ├── Norm \
+        └── Dropout \
+\\
+Output Layer
+└── Linear
+    └── Loss Function
+        └── CrossEntropyLoss
+
+
 
 ## Training and Fine-Tuning
 
 - **Learning Rates**: BERT embeddings - 3e-5, transformer parameters - 1e-5.
 - **Optimization**: 15 epochs of fine-tuning on a GPU setup.
-
-## Performance Metrics
-
-- **Training Accuracy**: 62%
-- **Validation Accuracy**: 40.2%
 
 ## Comparative Analysis
 
@@ -53,51 +82,6 @@ Below are some sample outputs from our model:
 
 ![Sample Outputs](sample_outputs.png)
 
-## Model Architecture
-
-Here's an overview of our model architecture:
-BERT-Based Hybrid Transformer Architecture
-------------------------------------------
-
-BertEncoder
-├── BertModel
-│   ├── Embeddings (Word, Position, Token Type)
-│   └── Encoder
-│       ├── 12 x BertLayer
-│       │   ├── Attention
-│       │   ├── Intermediate
-│       │   └── Output
-│   └── Pooler
-└── PositionalEncoding (for secondary positional encoding, if any)
-└── Embedding (for secondary embeddings, if any)
-
-Transformer
-├── Encoder
-│   ├── 4 x EncoderLayer
-│   │   ├── Self Attention
-│   │   ├── Dense
-│   │   ├── Norm
-│   │   └── Dropout
-└── Decoder
-    ├── 4 x DecoderLayer
-    │   ├── Self Attention
-    │   ├── Multihead Attention
-    │   ├── Dense
-    │   ├── Norm
-    │   └── Dropout
-
-Output Layer
-└── Linear
-    └── Loss Function
-        └── CrossEntropyLoss
 
 
-
-## Getting Started
-
-To get started with training and evaluating the model, follow the instructions in the `train.py` and `eval.py` files.
-
-## Citation
-
-If you find this model useful in your research, please consider citing:
 
