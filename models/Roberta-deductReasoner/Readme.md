@@ -1,6 +1,6 @@
-# Link to the model:
-# How to import the model:
+# How to import the model
 
+### Link to the model
 from core.args import TrainerArguments
 from deductreasoner.model import DeductReasoner
 parser = HfArgumentParser(TrainerArguments)
