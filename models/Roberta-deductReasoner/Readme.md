@@ -1,6 +1,4 @@
-Link to the model:
-
-
+# Link to the model:
 # How to import the model:
 
 from core.args import TrainerArguments
