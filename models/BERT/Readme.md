@@ -75,7 +75,7 @@ The model and results are stored in the following Google Drive folder:
 
 Below are some sample outputs from our model:
 
-![Sample Outputs](sample_outputs.png)
+![Sample Outputs](sample_output.png)
 
 
 
