@@ -43,7 +43,7 @@ Transformer \
 Output Layer \
 └── Linear \
     └── Loss Function \
-        └── CrossEntropyLoss \
+        └── CrossEntropyLoss 
 
 
 ## Training and Fine-Tuning
